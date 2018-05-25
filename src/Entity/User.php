@@ -161,6 +161,6 @@ class User
 
     public function __toString()
     {
-        return $this->email;
+        return $this->lastname.' '.$this->firstname;
     }
 }

@@ -3,7 +3,13 @@ Firstname: Prenom
 Lastname: Nom de famille
 Email: Adresse mail
 Password: Mot de passe
+Formation: Formation
 Formations: Formations
 Exercices: Exercices
+Label: Titre
+Course: Cours
 Create Formation: Ajouter une formation
 Create User: Ajouter un utilisateur
+Create Course: Creer un cours
+Create Exercice: Creer un exercice
+Users: Utilisateurs

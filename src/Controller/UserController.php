@@ -55,6 +55,7 @@ class UserController extends Controller
 
         return $this->render('user/list.html.twig', [
             'userList' => $userList,
+            'title' => 'List user',
         ]);
     }
 }

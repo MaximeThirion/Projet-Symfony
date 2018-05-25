@@ -12,13 +12,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
  * @package App\Controller
  * @Route("/admin/exercice")
  */
-
 class ExerciceController extends Controller
 {
     /**
      * @Route("/create", name="exercice_create")
      */
-    public function create(Request $requete) {
+    public function create(Request $requete)
+    {
 
         $exercice = new Exercice();
         $form = $this->createForm(ExerciceType::class, $exercice);
@@ -44,7 +44,8 @@ class ExerciceController extends Controller
     /**
      * @Route("/list", name="exercice_list")
      */
-    public function list() {
+    public function list()
+    {
 
         $exerciceList = $this
             ->getDoctrine()
@@ -52,7 +53,8 @@ class ExerciceController extends Controller
             ->findAll();
 
         return $this->render('exercice/list.html.twig', [
-           'exerciceList' => $exerciceList,
+            'exerciceList' => $exerciceList,
+            'title' => 'List exercice',
         ]);
     }
 }

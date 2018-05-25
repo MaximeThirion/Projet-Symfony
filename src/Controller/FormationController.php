@@ -55,6 +55,7 @@ class FormationController extends Controller
 
         return $this->render('formation/list.html.twig', [
             'formationList' => $formationList,
+            'title' => 'List formation',
         ]);
     }
 }

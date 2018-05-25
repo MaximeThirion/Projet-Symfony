@@ -55,6 +55,7 @@ class CourseController extends Controller
 
         return $this->render('course/list.html.twig', [
             'courseList' => $courseList,
+            'title' => 'List course',
         ]);
     }
 }

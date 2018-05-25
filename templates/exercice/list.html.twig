@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>List of Exercice</h1>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Label</th>
+                <th scope="col">Course</th>
+                <th scope="col">User</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for exercice in exerciceList %}
+                <tr>
+                    <td>{{ exercice.id }}</td>
+                    <td>{{ exercice.label }}</td>
+                    <td>{{ exercice.course }}</td>
+                    <td>{{ exercice.users | length }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

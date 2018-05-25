@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>List of Formation</h1>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Label</th>
+                <th scope="col">Courses</th>
+                <th scope="col">Users</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for formation in formationList %}
+                <tr>
+                    <td>{{ formation.id }}</td>
+                    <td>{{ formation.label }}</td>
+                    <td>{{ formation.courses | length }}</td>
+                    <td>{{ formation.users | length }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

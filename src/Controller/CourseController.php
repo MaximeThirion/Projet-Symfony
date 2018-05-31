@@ -26,10 +26,10 @@ class CourseController extends Controller
         $form->handleRequest($requete);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $user = $form->getData();
+            $course = $form->getData();
 
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($user);
+            $entityManager->persist($course);
             $entityManager->flush();
 
             return $this->redirectToRoute('course_list');

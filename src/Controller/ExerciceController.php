@@ -26,10 +26,10 @@ class ExerciceController extends Controller
         $form->handleRequest($requete);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $user = $form->getData();
+            $exercice = $form->getData();
 
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($user);
+            $entityManager->persist($exercice);
             $entityManager->flush();
 
             return $this->redirectToRoute('exercice_list');

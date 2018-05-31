@@ -26,10 +26,10 @@ class FormationController extends Controller
         $form->handleRequest($requete);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $user = $form->getData();
+            $formation = $form->getData();
 
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($user);
+            $entityManager->persist($formation);
             $entityManager->flush();
 
             return $this->redirectToRoute('formation_list');

@@ -17,8 +17,6 @@ class CourseController extends Controller
 {
     /**
      * @Route("/create", name="course_create")
-     * @param Request $requete
-     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function create(Request $requete) {
 

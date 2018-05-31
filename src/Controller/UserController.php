@@ -17,8 +17,6 @@ class UserController extends Controller
 {
     /**
      * @Route("/create", name="user_create")
-     * @param Request $requete
-     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function create(Request $requete) {
 

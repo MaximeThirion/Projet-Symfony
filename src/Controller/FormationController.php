@@ -17,8 +17,6 @@ class FormationController extends Controller
 {
     /**
      * @Route("/create", name="formation_create")
-     * @param Request $requete
-     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function create(Request $requete) {
 

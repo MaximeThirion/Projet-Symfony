@@ -14,6 +14,7 @@
                 <th scope="col">Label</th>
                 <th scope="col">Formation</th>
                 <th scope="col">Exercices</th>
+                <th scope="col" colspan="2">Edit</th>
             </tr>
             </thead>
             <tbody>
@@ -23,6 +24,8 @@
                     <td>{{ course.label }}</td>
                     <td>{{ course.formation }}</td>
                     <td>{{ course.exercices | length }}</td>
+                    <td><a href="{{ path('course_update', {'id': course.id}) }}"><i class="far fa-edit"></i></a></td>
+                    <td><a href="{{ path('course_delete', {'id': course.id}) }}"><i class="far fa-trash-alt"></i></a></td>
                 </tr>
             {% endfor %}
             </tbody>

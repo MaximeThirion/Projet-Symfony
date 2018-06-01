@@ -57,4 +57,46 @@ class ExerciceController extends Controller
             'title' => 'List exercice',
         ]);
     }
+
+    /**
+     * @Route("/create/{id}", name="exercice_update")
+     */
+    public function update(Request $requete, $id)
+    {
+
+        $entityManager = $this->getDoctrine()->getManager();
+        $exercice = $entityManager->getRepository(Exercice::class)->find($id);
+
+        $form = $this->createForm(ExerciceType::class, $exercice);
+
+        $form->handleRequest($requete);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $entityManager->flush();
+
+            return $this->redirectToRoute('exercice_list');
+        }
+
+        return $this->render('exercice/create.html.twig', [
+            'title' => 'Update exercice',
+            'id' => $id,
+            'form' => $form->createView()
+        ]);
+    }
+
+    /**
+     * @Route("/delete/{id}", name="exercice_delete")
+     */
+    public function delete($id)
+    {
+
+        $entityManager = $this->getDoctrine()->getManager();
+        $exercice = $entityManager->getRepository(Exercice::class)->find($id);
+
+        $entityManager->remove($exercice);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('exercice_list');
+    }
 }

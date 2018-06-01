@@ -56,4 +56,46 @@ class CourseController extends Controller
             'title' => 'List course',
         ]);
     }
+
+    /**
+     * @Route("/create/{id}", name="course_update")
+     */
+    public function update(Request $requete, $id)
+    {
+
+        $entityManager = $this->getDoctrine()->getManager();
+        $course = $entityManager->getRepository(Course::class)->find($id);
+
+        $form = $this->createForm(CourseType::class, $course);
+
+        $form->handleRequest($requete);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $entityManager->flush();
+
+            return $this->redirectToRoute('course_list');
+        }
+
+        return $this->render('course/create.html.twig', [
+            'title' => 'Update course',
+            'id' => $id,
+            'form' => $form->createView()
+        ]);
+    }
+
+    /**
+     * @Route("/delete/{id}", name="course_delete")
+     */
+    public function delete($id)
+    {
+
+        $entityManager = $this->getDoctrine()->getManager();
+        $course = $entityManager->getRepository(Course::class)->find($id);
+
+        $entityManager->remove($course);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('course_list');
+    }
 }

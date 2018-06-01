@@ -56,4 +56,46 @@ class UserController extends Controller
             'title' => 'List user',
         ]);
     }
+
+    /**
+     * @Route("/create/{id}", name="user_update")
+     */
+    public function update(Request $requete, $id)
+    {
+
+        $entityManager = $this->getDoctrine()->getManager();
+        $user = $entityManager->getRepository(User::class)->find($id);
+
+        $form = $this->createForm(UserType::class, $user);
+
+        $form->handleRequest($requete);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $entityManager->flush();
+
+            return $this->redirectToRoute('user_list');
+        }
+
+        return $this->render('user/create.html.twig', [
+            'title' => 'Update user',
+            'id' => $id,
+            'form' => $form->createView()
+        ]);
+    }
+
+    /**
+     * @Route("/delete/{id}", name="user_delete")
+     */
+    public function delete($id)
+    {
+
+        $entityManager = $this->getDoctrine()->getManager();
+        $user = $entityManager->getRepository(User::class)->find($id);
+
+        $entityManager->remove($user);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('user_list');
+    }
 }

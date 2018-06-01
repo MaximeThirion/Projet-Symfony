@@ -56,4 +56,46 @@ class FormationController extends Controller
             'title' => 'List formation',
         ]);
     }
+
+    /**
+     * @Route("/create/{id}", name="formation_update")
+     */
+    public function update(Request $requete, $id)
+    {
+
+        $entityManager = $this->getDoctrine()->getManager();
+        $formation = $entityManager->getRepository(Formation::class)->find($id);
+
+        $form = $this->createForm(FormationType::class, $formation);
+
+        $form->handleRequest($requete);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $entityManager->flush();
+
+            return $this->redirectToRoute('formation_list');
+        }
+
+        return $this->render('formation/create.html.twig', [
+            'title' => 'Update formation',
+            'id' => $id,
+            'form' => $form->createView()
+        ]);
+    }
+
+    /**
+     * @Route("/delete/{id}", name="formation_delete")
+     */
+    public function delete($id)
+    {
+
+        $entityManager = $this->getDoctrine()->getManager();
+        $formation = $entityManager->getRepository(Formation::class)->find($id);
+
+        $entityManager->remove($formation);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('formation_list');
+    }
 }

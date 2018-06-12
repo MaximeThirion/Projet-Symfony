@@ -16,7 +16,7 @@
                 <th scope="col">Email</th>
                 <th scope="col">Formations</th>
                 <th scope="col">Exercices</th>
-                <th scope="col" colspan="2">Edit</th>
+                <th scope="col">Edit</th>
             </tr>
             </thead>
             <tbody>
@@ -28,8 +28,7 @@
                     <td>{{ user.email }}</td>
                     <td>{{ user.formations | length }}</td>
                     <td>{{ user.exercices | length }}</td>
-                    <td><a href="{{ path('user_update', {'id': user.id}) }}"><i class="far fa-edit"></i></a></td>
-                    <td><a href="{{ path('user_delete', {'id': user.id}) }}"><i class="far fa-trash-alt"></i></a></td>
+                    <td><a class="btn btn-warning" href="{{ path('user_update', {'id': user.id}) }}"><i class="far fa-edit"></i> Edit</a> <a class="btn btn-danger" href="{{ path('user_delete', {'id': user.id}) }}"><i class="far fa-trash-alt"></i> Delete</a></td>
                 </tr>
             {% endfor %}
             </tbody>

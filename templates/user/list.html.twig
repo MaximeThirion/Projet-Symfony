@@ -11,6 +11,7 @@
             <thead>
             <tr>
                 <th scope="col">Id</th>
+                <th scope="col">Avatar</th>
                 <th scope="col">Firstname</th>
                 <th scope="col">Lastname</th>
                 <th scope="col">Email</th>
@@ -23,6 +24,7 @@
             {% for user in userList %}
                 <tr>
                     <td>{{ user.id }}</td>
+                    <td><img src="{{ asset('uploads/avatar/' ~ user.avatar) }}" height="40px" width="40px"></td>
                     <td>{{ user.firstname }}</td>
                     <td>{{ user.lastname }}</td>
                     <td>{{ user.email }}</td>

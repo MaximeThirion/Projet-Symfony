@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\UserType;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -27,6 +28,16 @@ class UserController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $user = $form->getData();
+
+            $file = $form->get('avatar')->getData();
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+
+            $file->move(
+                $this->getParameter('avatar_directory'),
+                $fileName
+            );
+
+            $user->setAvatar($fileName);
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
@@ -66,11 +77,25 @@ class UserController extends Controller
         $entityManager = $this->getDoctrine()->getManager();
         $user = $entityManager->getRepository(User::class)->find($id);
 
+        $user->setAvatar(
+            new File($this->getParameter('avatar_directory').'/'.$user->getAvatar())
+        );
+
         $form = $this->createForm(UserType::class, $user);
 
         $form->handleRequest($requete);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $file = $form->get('avatar')->getData();
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+
+            $file->move(
+                $this->getParameter('avatar_directory'),
+                $fileName
+            );
+
+            $user->setAvatar($fileName);
 
             $entityManager->flush();
 

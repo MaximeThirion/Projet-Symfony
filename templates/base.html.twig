@@ -68,9 +68,9 @@
                 </div>
             </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Rechercher" aria-label="Rechercher">
-            <button class="btn btn-primary my-2 my-sm-0" type="submit">Rechercher</button>
+        <form class="form-inline my-2 my-lg-0" method="post" name="rechercher" action="{{ path('search') }}">
+            <input class="form-control mr-sm-2" name="input_rechercher" type="search" placeholder="Rechercher" aria-label="Rechercher">
+            <button class="btn btn-primary my-2 my-sm-0" name="rechercher">Rechercher</button>
         </form>
     </div>
 </nav>

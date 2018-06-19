@@ -51,10 +51,11 @@ class User
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Assert\NotBlank(message="Avatar")
      * @Assert\File(mimeTypes={ "image/png" })
      */
     private $avatar;
+
+    private $file;
 
     public function __construct()
     {
@@ -178,6 +179,17 @@ class User
     }
 
     public function setAvatar(?string $avatar): self
+    {
+        $this->avatar = $avatar;
+
+        return $this;
+    }
+    public function getFile(): ?string
+    {
+        return $this->avatar;
+    }
+
+    public function setFile(?string $avatar): self
     {
         $this->avatar = $avatar;
 

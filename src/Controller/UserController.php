@@ -29,7 +29,7 @@ class UserController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $user = $form->getData();
 
-            $file = $form->get('avatar')->getData();
+            $file = $form->get('file')->getData();
             $fileName = md5(uniqid()).'.'.$file->guessExtension();
 
             $file->move(
@@ -77,26 +77,30 @@ class UserController extends Controller
         $entityManager = $this->getDoctrine()->getManager();
         $user = $entityManager->getRepository(User::class)->find($id);
 
-        $user->setAvatar(
-            new File($this->getParameter('avatar_directory').'/'.$user->getAvatar())
-        );
-
         $form = $this->createForm(UserType::class, $user);
 
         $form->handleRequest($requete);
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $file = $form->get('avatar')->getData();
-            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            if ($form->get('file')->getData() !== null) {
+                $file = $form->get('file')->getData();
 
-            $file->move(
-                $this->getParameter('avatar_directory'),
-                $fileName
-            );
+                if ($user->getAvatar() !== null) {
+                    $oldFile = $this->getParameter('avatar_directory').'/'.$user->getAvatar();
 
-            $user->setAvatar($fileName);
+                    if (file_exists($oldFile)) {
+                        unlink($oldFile);
+                    }
+                }
+                $fileName = md5(uniqid()).'.'.$file->guessExtension();
+                $user->setAvatar($fileName);
 
+                $file->move(
+                    $this->getParameter('avatar_directory'),
+                    $fileName
+                );
+            }
             $entityManager->flush();
 
             return $this->redirectToRoute('user_list');

@@ -32,7 +32,7 @@ class SearchController extends Controller
         }
 
         return $this->render('search/index.html.twig', [
-            'controller_name' => 'SearchController',
+            'title' => 'Search',
             'donnees' => $donnees,
         ]);
     }

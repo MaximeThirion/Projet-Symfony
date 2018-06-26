@@ -24,7 +24,7 @@
                     <td>{{ course.label }}</td>
                     <td>{{ course.formation }}</td>
                     <td>{{ course.exercices | length }}</td>
-                    <td><a class="btn btn-warning" href="{{ path('course_update', {'id': course.id}) }}"><i class="far fa-edit"></i> Edit</a> <a class="btn btn-danger" href="{{ path('course_delete', {'id': course.id}) }}"><i class="far fa-trash-alt"></i> Delete</a></td>
+                    <td><a class="btn btn-primary" href="{{ path('course_update', {'id': course.id}) }}"><i class="far fa-edit"></i> Edit</a> <a class="btn btn-danger" href="{{ path('course_delete', {'id': course.id}) }}"><i class="far fa-trash-alt"></i> Delete</a></td>
                 </tr>
             {% endfor %}
             </tbody>

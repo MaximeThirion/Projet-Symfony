@@ -24,7 +24,7 @@
                     <td>{{ formation.label }}</td>
                     <td>{{ formation.courses | length }}</td>
                     <td>{{ formation.users | length }}</td>
-                    <td><a class="btn btn-warning" href="{{ path('formation_update', {'id': formation.id}) }}"><i class="far fa-edit"></i> Edit</a> <a class="btn btn-danger" href="{{ path('formation_delete', {'id': formation.id}) }}"><i class="far fa-trash-alt"></i> Delete</a></td>
+                    <td><a class="btn btn-primary" href="{{ path('formation_update', {'id': formation.id}) }}"><i class="far fa-edit"></i> Edit</a> <a class="btn btn-danger" href="{{ path('formation_delete', {'id': formation.id}) }}"><i class="far fa-trash-alt"></i> Delete</a></td>
                 </tr>
             {% endfor %}
             </tbody>

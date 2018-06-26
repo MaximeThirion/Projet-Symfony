@@ -17,6 +17,7 @@
                 <th scope="col">Email</th>
                 <th scope="col">Formations</th>
                 <th scope="col">Exercices</th>
+                <th scope="col">Active</th>
                 <th scope="col">Edit</th>
             </tr>
             </thead>
@@ -30,7 +31,12 @@
                     <td>{{ user.email }}</td>
                     <td>{{ user.formations | length }}</td>
                     <td>{{ user.exercices | length }}</td>
-                    <td><a class="btn btn-warning" href="{{ path('user_update', {'id': user.id}) }}"><i class="far fa-edit"></i> Edit</a> <a class="btn btn-danger" href="{{ path('user_delete', {'id': user.id}) }}"><i class="far fa-trash-alt"></i> Delete</a></td>
+                    {% if user.active == "0" %}
+                        <td><a class="btn btn-danger" href=""><i class="fas fa-times"></i></a></td>
+                    {% else %}
+                        <td><a class="btn btn-success" href=""><i class="fas fa-check"></i></a></td>
+                    {% endif %}
+                    <td><a class="btn btn-primary" href="{{ path('user_update', {'id': user.id}) }}"><i class="far fa-edit"></i> Edit</a> <a class="btn btn-danger" href="{{ path('user_delete', {'id': user.id}) }}"><i class="far fa-trash-alt"></i> Delete</a></td>
                 </tr>
             {% endfor %}
             </tbody>

@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -17,7 +18,7 @@ class UserType extends AbstractType
             ->add('file', FileType::class, array('label' => 'Avatar', 'required' => false, 'data_class' => null))
             ->add('firstname')
             ->add('lastname')
-            ->add('email')
+            ->add('email', EmailType::class)
             ->add('password')
             ->add('formations')
             ->add('exercices')

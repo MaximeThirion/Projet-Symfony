@@ -24,7 +24,7 @@
                     <td>{{ exercice.label }}</td>
                     <td>{{ exercice.course }}</td>
                     <td>{{ exercice.users | length }}</td>
-                    <td><a class="btn btn-warning" href="{{ path('exercice_update', {'id': exercice.id}) }}"><i class="far fa-edit"></i> Edit</a> <a class="btn btn-danger" href="{{ path('exercice_delete', {'id': exercice.id}) }}"><i class="far fa-trash-alt"></i> Delete</a></td>
+                    <td><a class="btn btn-primary" href="{{ path('exercice_update', {'id': exercice.id}) }}"><i class="far fa-edit"></i> Edit</a> <a class="btn btn-danger" href="{{ path('exercice_delete', {'id': exercice.id}) }}"><i class="far fa-trash-alt"></i> Delete</a></td>
                 </tr>
             {% endfor %}
             </tbody>

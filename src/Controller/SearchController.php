@@ -11,7 +11,7 @@ class SearchController extends Controller
     /**
      * @Route("/search", name="search")
      */
-    public function index()
+    public function search()
     {
         if (isset($_POST['rechercher'])) {
 
@@ -31,7 +31,7 @@ class SearchController extends Controller
             $donnees = $statement->fetchAll();
         }
 
-        return $this->render('search/authentication.html.twig', [
+        return $this->render('search/index.html.twig', [
             'title' => 'Search',
             'donnees' => $donnees,
         ]);

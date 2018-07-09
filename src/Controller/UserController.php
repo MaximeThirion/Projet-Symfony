@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 /** class UserController
  * @package App\Controller
@@ -19,7 +20,7 @@ class UserController extends Controller
     /**
      * @Route("/create", name="user_create")
      */
-    public function create(Request $requete) {
+    public function create(Request $requete, UserPasswordEncoderInterface $passwordEncoder) {
 
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
@@ -28,6 +29,9 @@ class UserController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $user = $form->getData();
+
+            $password = $passwordEncoder->encodePassword($user, $user->getPassword());
+            $user->setPassword($password);
 
             $file = $form->get('file')->getData();
             $fileName = md5(uniqid()).'.'.$file->guessExtension();

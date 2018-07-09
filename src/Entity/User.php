@@ -264,9 +264,9 @@ class User implements UserInterface, \Serializable
      *
      * @return string The username
      */
-    public function getUsername()
+    public function getUsername(): ?string
     {
-        // TODO: Implement getUsername() method.
+        return $this->email;
     }
 
     /**
@@ -294,5 +294,12 @@ class User implements UserInterface, \Serializable
     public function unserialize($serialized): void
     {
         [$this->id, $this->email, $this->password] = unserialize($serialized, ['allowed_classes' => false]);
+    }
+
+    public function setUsername(string $username): self
+    {
+        $this->username = $username;
+
+        return $this;
     }
 }

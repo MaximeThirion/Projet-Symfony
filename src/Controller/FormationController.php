@@ -12,13 +12,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
  * @package App\Controller
  * @Route("/admin/formation")
  */
-
 class FormationController extends Controller
 {
     /**
      * @Route("/create", name="formation_create")
      */
-    public function create(Request $requete) {
+    public function create(Request $requete)
+    {
 
         $formation = new Formation();
         $form = $this->createForm(FormationType::class, $formation);
@@ -44,7 +44,10 @@ class FormationController extends Controller
     /**
      * @Route("/list", name="formation_list")
      */
-    public function list() {
+    public function list()
+    {
+
+        $user = $this->getUser();
 
         $formationList = $this
             ->getDoctrine()
@@ -54,6 +57,7 @@ class FormationController extends Controller
         return $this->render('formation/list.html.twig', [
             'formationList' => $formationList,
             'title' => 'List formation',
+            'user' => $user,
         ]);
     }
 

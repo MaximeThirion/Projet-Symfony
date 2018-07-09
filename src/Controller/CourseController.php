@@ -12,13 +12,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
  * @package App\Controller
  * @Route("/admin/course")
  */
-
 class CourseController extends Controller
 {
     /**
      * @Route("/create", name="course_create")
      */
-    public function create(Request $requete) {
+    public function create(Request $requete)
+    {
 
         $course = new Course();
         $form = $this->createForm(CourseType::class, $course);
@@ -44,7 +44,10 @@ class CourseController extends Controller
     /**
      * @Route("/list", name="course_list")
      */
-    public function list() {
+    public function list()
+    {
+
+        $user = $this->getUser();
 
         $courseList = $this
             ->getDoctrine()
@@ -54,6 +57,7 @@ class CourseController extends Controller
         return $this->render('course/list.html.twig', [
             'courseList' => $courseList,
             'title' => 'List course',
+            'user' => $user,
         ]);
     }
 

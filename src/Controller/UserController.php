@@ -61,6 +61,8 @@ class UserController extends Controller
      */
     public function list() {
 
+        $user = $this->getUser();
+
         $userList = $this
             ->getDoctrine()
             ->getRepository(User::class)
@@ -69,6 +71,7 @@ class UserController extends Controller
         return $this->render('user/list.html.twig', [
             'userList' => $userList,
             'title' => 'List user',
+            'user' => $user,
         ]);
     }
 

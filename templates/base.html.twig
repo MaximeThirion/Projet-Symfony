@@ -68,10 +68,20 @@
                 </div>
             </li>
         </ul>
+        {% if user is defined %}
+            <div class="navbar-text mr-2">
+                {{ user.firstname }} {{ user.lastname }}
+            </div>
+        {% endif %}
         <form class="form-inline my-2 my-lg-0" method="post" name="rechercher" action="{{ path('search') }}">
             <input class="form-control mr-sm-2" name="input_rechercher" type="search" placeholder="Rechercher" aria-label="Rechercher">
             <button class="btn btn-primary my-2 my-sm-0" name="rechercher">Rechercher</button>
         </form>
+        {% if user is defined %}
+            <div>
+                <a href="{{ path('logout') }}" class="btn btn-danger ml-2" name="deconnexion">Deconnexion</a>
+            </div>
+        {% endif %}
     </div>
 </nav>
 {% block body %}{% endblock %}

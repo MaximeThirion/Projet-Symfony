@@ -1,0 +1,50 @@
+body {
+  background-image: url("../img/landscape.jpg");
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+form div {
+  margin: auto; }
+  form div input {
+    color: white;
+    background-color: #1E2833;
+    width: 100%;
+    border: none;
+    border-bottom: 1px #2C353F solid;
+    padding: 5px; }
+  form div a {
+    font-size: 12px;
+    text-align: center; }
+
+.lockpad {
+  font-size: 9em;
+  margin: 50px auto 50px auto;
+  text-align: center; }
+
+.login {
+  margin: 100px auto 100px auto;
+  padding: 30px;
+  background-color: #1E2833;
+  border-radius: 10px; }
+
+#bouton_connexion {
+  margin: 10px auto 20px auto;
+  background-color: #006DF0;
+  color: white; }
+
+.formulaire_profil {
+  margin: 50px auto 50px auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px; }
+  .formulaire_profil h1 {
+    margin-bottom: 50px; }
+
+.formulaire_profil_section {
+  padding-bottom: 20px;
+  margin-bottom: 25px;
+  border-bottom: 1px dashed black; }
+  .formulaire_profil_section div {
+    margin-left: 0; }
+
+/*# sourceMappingURL=login.css.map */

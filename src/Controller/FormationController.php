@@ -47,8 +47,6 @@ class FormationController extends Controller
     public function list()
     {
 
-        $user = $this->getUser();
-
         $formationList = $this
             ->getDoctrine()
             ->getRepository(Formation::class)
@@ -57,7 +55,6 @@ class FormationController extends Controller
         return $this->render('formation/list.html.twig', [
             'formationList' => $formationList,
             'title' => 'List formation',
-            'user' => $user,
         ]);
     }
 

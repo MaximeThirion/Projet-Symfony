@@ -13,8 +13,6 @@ class SearchController extends Controller
      */
     public function search()
     {
-        $user = $this->getUser();
-
         if (isset($_POST['rechercher'])) {
 
             $entityManager = $this->getDoctrine()->getManager();
@@ -36,7 +34,6 @@ class SearchController extends Controller
         return $this->render('search/index.html.twig', [
             'title' => 'Search',
             'donnees' => $donnees,
-            'user' => $user,
         ]);
     }
 }

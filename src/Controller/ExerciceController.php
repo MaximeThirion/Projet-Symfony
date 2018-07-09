@@ -46,7 +46,6 @@ class ExerciceController extends Controller
      */
     public function list()
     {
-        $user = $this->getUser();
 
         $exerciceList = $this
             ->getDoctrine()
@@ -56,7 +55,6 @@ class ExerciceController extends Controller
         return $this->render('exercice/list.html.twig', [
             'exerciceList' => $exerciceList,
             'title' => 'List exercice',
-            'user' => $user,
         ]);
     }
 

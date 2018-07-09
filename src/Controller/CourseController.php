@@ -47,8 +47,6 @@ class CourseController extends Controller
     public function list()
     {
 
-        $user = $this->getUser();
-
         $courseList = $this
             ->getDoctrine()
             ->getRepository(Course::class)
@@ -57,7 +55,6 @@ class CourseController extends Controller
         return $this->render('course/list.html.twig', [
             'courseList' => $courseList,
             'title' => 'List course',
-            'user' => $user,
         ]);
     }
 

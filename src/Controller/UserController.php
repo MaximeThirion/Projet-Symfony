@@ -75,7 +75,7 @@ class UserController extends Controller
     /**
      * @Route("/create/{id}", name="user_update")
      */
-    public function update(Request $requete, $id)
+    public function update(Request $requete, $id, UserPasswordEncoderInterface $passwordEncoder)
     {
 
         $entityManager = $this->getDoctrine()->getManager();
@@ -85,18 +85,18 @@ class UserController extends Controller
 
         $form->handleRequest($requete);
 
+        $lastFileName = $user->getAvatar();
+
+        $file = $form->get('file')->getData();
+
         if ($form->isSubmitted() && $form->isValid()) {
 
-            if ($form->get('file')->getData() !== null) {
-                $file = $form->get('file')->getData();
+            if ($form->get('file')->getData() === null) {
 
-                if ($user->getAvatar() !== null) {
-                    $oldFile = $this->getParameter('avatar_directory').'/'.$user->getAvatar();
+                $user->setAvatar($lastFileName);
+            }
+            else {
 
-                    if (file_exists($oldFile)) {
-                        unlink($oldFile);
-                    }
-                }
                 $fileName = md5(uniqid()).'.'.$file->guessExtension();
                 $user->setAvatar($fileName);
 
@@ -105,6 +105,9 @@ class UserController extends Controller
                     $fileName
                 );
             }
+            $password = $passwordEncoder->encodePassword($user, $user->getPassword());
+            $user->setPassword($password);
+
             $entityManager->flush();
 
             return $this->redirectToRoute('user_list');

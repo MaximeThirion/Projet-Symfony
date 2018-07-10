@@ -25,7 +25,7 @@
             {% for user in userList %}
                 <tr>
                     <td>{{ user.id }}</td>
-                    <td><img src="{{ asset('uploads/avatar/' ~ user.avatar) }}" height="40px" width="40px"></td>
+                    <td><img class="rounded" src="{{ asset('uploads/avatar/' ~ user.avatar) }}" height="40px" width="40px"></td>
                     <td>{{ user.firstname }}</td>
                     <td>{{ user.lastname }}</td>
                     <td>{{ user.email }}</td>

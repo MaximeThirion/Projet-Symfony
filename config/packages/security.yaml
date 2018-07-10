@@ -16,6 +16,8 @@ security:
             form_login:
                 login_path: login
                 check_path: login
+                default_target_path: profile
+                always_use_default_target_path: true
             logout:
                 path:   /auth/logout
                 target: /auth/login

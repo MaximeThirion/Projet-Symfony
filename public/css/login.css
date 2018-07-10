@@ -27,24 +27,4 @@ form div {
   background-color: #1E2833;
   border-radius: 10px; }
 
-#bouton_connexion {
-  margin: 10px auto 20px auto;
-  background-color: #006DF0;
-  color: white; }
-
-.formulaire_profil {
-  margin: 50px auto 50px auto;
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px; }
-  .formulaire_profil h1 {
-    margin-bottom: 50px; }
-
-.formulaire_profil_section {
-  padding-bottom: 20px;
-  margin-bottom: 25px;
-  border-bottom: 1px dashed black; }
-  .formulaire_profil_section div {
-    margin-left: 0; }
-
 /*# sourceMappingURL=login.css.map */

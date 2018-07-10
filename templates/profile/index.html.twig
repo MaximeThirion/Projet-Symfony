@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+    <main class="container">
+        <div class="row col-9 ml-auto mr-auto mb-4">
+            <h1>{{ title }}</h1>
+        </div>
+        <div class="row col-9 m-auto">
+            <img class="mr-5 rounded" src="{{ asset('uploads/avatar/' ~ app.user.avatar) }}" alt="">
+            <div class="col">
+                <h4><strong>Prenom : </strong>{{ app.user.firstname }}</h4>
+                <h4><strong>Nom : </strong>{{ app.user.lastname }}</h4>
+                <h4><strong>Email : </strong>{{ app.user.email }}</h4>
+            </div>
+        </div>
+    </main>
+{% endif %}
+{% endblock %}

@@ -81,11 +81,11 @@ class UserController extends Controller
         $entityManager = $this->getDoctrine()->getManager();
         $user = $entityManager->getRepository(User::class)->find($id);
 
+        $lastFileName = $user->getAvatar();
+
         $form = $this->createForm(UserType::class, $user);
 
         $form->handleRequest($requete);
-
-        $lastFileName = $user->getAvatar();
 
         $file = $form->get('file')->getData();
 
@@ -96,6 +96,11 @@ class UserController extends Controller
                 $user->setAvatar($lastFileName);
             }
             else {
+
+                if (file_exists($this->getParameter('avatar_directory').'/'.$lastFileName)) {
+
+                    unlink($this->getParameter('avatar_directory').'/'.$lastFileName);
+                }
 
                 $fileName = md5(uniqid()).'.'.$file->guessExtension();
                 $user->setAvatar($fileName);

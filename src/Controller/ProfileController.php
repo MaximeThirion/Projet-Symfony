@@ -17,7 +17,7 @@ class ProfileController extends Controller
     public function index()
     {
 
-        return $this->render('profile/index.html.twig', [
+        return $this->render('profile/profile.html.twig', [
             'title' => 'Profile',
         ]);
     }
@@ -69,6 +69,7 @@ class ProfileController extends Controller
         return $this->render('profile/edit.html.twig', [
             'title' => 'Edit',
             'form' => $form->createView(),
+            'button_label' => 'Update',
         ]);
     }
 }

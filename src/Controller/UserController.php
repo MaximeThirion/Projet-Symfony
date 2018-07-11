@@ -53,6 +53,7 @@ class UserController extends Controller
         return $this->render('user/create.html.twig', [
             'title' => 'Create user',
             'form' => $form->createView(),
+            'button_label' => 'Create User',
         ]);
     }
 
@@ -121,7 +122,8 @@ class UserController extends Controller
         return $this->render('user/create.html.twig', [
             'title' => 'Update user',
             'id' => $id,
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'button_label' => 'Update User',
         ]);
     }
 

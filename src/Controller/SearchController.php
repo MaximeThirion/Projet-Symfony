@@ -31,7 +31,7 @@ class SearchController extends Controller
             $donnees = $statement->fetchAll();
         }
 
-        return $this->render('search/index.html.twig', [
+        return $this->render('search/search.html.twig', [
             'title' => 'Search',
             'donnees' => $donnees,
         ]);

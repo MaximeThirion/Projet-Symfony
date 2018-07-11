@@ -5,29 +5,29 @@
 {% endblock %}
 
 {% block body %}
-    <div class="container">
+    <main class="container">
         <h1>List of Exercice</h1>
-        <table class="table">
+        <table class="table table-hover">
             <thead>
             <tr>
                 <th scope="col">Id</th>
                 <th scope="col">Label</th>
                 <th scope="col">Course</th>
                 <th scope="col">Users</th>
-                <th scope="col" colspan="2">Edit</th>
+                <th scope="col">Edit</th>
             </tr>
             </thead>
             <tbody>
             {% for exercice in exerciceList %}
                 <tr>
-                    <td>{{ exercice.id }}</td>
-                    <td>{{ exercice.label }}</td>
-                    <td>{{ exercice.course }}</td>
-                    <td>{{ exercice.users | length }}</td>
-                    <td><a class="btn btn-primary" href="{{ path('exercice_update', {'id': exercice.id}) }}"><i class="far fa-edit"></i> Edit</a> <a class="btn btn-danger" href="{{ path('exercice_delete', {'id': exercice.id}) }}"><i class="far fa-trash-alt"></i> Delete</a></td>
+                    <td class="align-middle">{{ exercice.id }}</td>
+                    <td class="align-middle">{{ exercice.label }}</td>
+                    <td class="align-middle">{{ exercice.course }}</td>
+                    <td class="align-middle">{{ exercice.users | length }}</td>
+                    <td class="align-middle"><a class="btn btn-primary" href="{{ path('exercice_update', {'id': exercice.id}) }}"><i class="far fa-edit"></i> Edit</a> <a class="btn btn-danger" href="{{ path('exercice_delete', {'id': exercice.id}) }}"><i class="far fa-trash-alt"></i> Delete</a></td>
                 </tr>
             {% endfor %}
             </tbody>
         </table>
-    </div>
+    </main>
 {% endblock %}

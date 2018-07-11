@@ -23,7 +23,7 @@ class UserType extends AbstractType
             ->add('password', PasswordType::class)
             ->add('formations')
             ->add('exercices')
-            ->add('save', SubmitType::class, array('label' => 'Create User'))
+            ->add('save', SubmitType::class)
         ;
     }
 

@@ -16,7 +16,7 @@ class ExerciceType extends AbstractType
             ->add('label')
             ->add('users')
             ->add('course')
-            ->add('save', SubmitType::class, array('label' => 'Create Exercice'))
+            ->add('save', SubmitType::class)
         ;
     }
 

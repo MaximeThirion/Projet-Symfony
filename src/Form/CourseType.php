@@ -15,7 +15,7 @@ class CourseType extends AbstractType
         $builder
             ->add('label')
             ->add('formation')
-            ->add('save', SubmitType::class, array('label' => 'Create Course'))
+            ->add('save', SubmitType::class)
         ;
     }
 

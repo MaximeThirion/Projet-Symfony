@@ -38,6 +38,7 @@ class CourseController extends Controller
         return $this->render('course/create.html.twig', [
             'title' => 'Create course',
             'form' => $form->createView(),
+            'button_label' => 'Create Course',
         ]);
     }
 
@@ -81,7 +82,8 @@ class CourseController extends Controller
         return $this->render('course/create.html.twig', [
             'title' => 'Update course',
             'id' => $id,
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'button_label' => 'Update Course',
         ]);
     }
 

@@ -15,7 +15,7 @@ class FormationType extends AbstractType
         $builder
             ->add('label')
             ->add('users')
-            ->add('save', SubmitType::class, array('label' => 'Create Formation'))
+            ->add('save', SubmitType::class)
         ;
     }
 

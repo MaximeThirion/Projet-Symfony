@@ -9,8 +9,14 @@ Exercices: Exercices
 Label: Titre
 Course: Cours
 Create Formation: Ajouter une formation
-Create User: Ajouter un utilisateur
+Create User: Creer un utilisateur
 Create Course: Creer un cours
-Create Exercice: Creer un exercice
+Create Exercise: Creer un exercice
 Users: Utilisateurs
 Avatar: Image de profil
+Update User: Mettre à jour l'utilisateur
+Update Formation: Mettre à jour la formation
+Update Course: Mettre à jour le cours
+Update Exercise: Mettre à jour l'exercice
+Update: Mettre à jour
+Register: S'enregistrer

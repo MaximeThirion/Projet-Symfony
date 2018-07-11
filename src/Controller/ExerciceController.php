@@ -37,7 +37,8 @@ class ExerciceController extends Controller
 
         return $this->render('exercice/create.html.twig', [
             'title' => 'Create exercice',
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'button_label' => 'Create Exercise'
         ]);
     }
 
@@ -81,7 +82,8 @@ class ExerciceController extends Controller
         return $this->render('exercice/create.html.twig', [
             'title' => 'Update exercice',
             'id' => $id,
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'button_label' => 'Update Exercise'
         ]);
     }
 

@@ -3,11 +3,12 @@
 {% block title %}{{ title }}{% endblock %}
 
 {% block body %}
-    <div class="container">
+    <main class="container">
         <h1>{{ title }}</h1>
 
-        {{ form_start(form) }}
-        {{ form_widget(form) }}
-        {{ form_end(form) }}
-    </div>
+        {{ form_row(form.label) }}
+        {{ form_row(form.users) }}
+        {{ form_row(form.course) }}
+        {{ form_row(form.save, {'label': button_label}) }}
+    </main>
 {% endblock %}

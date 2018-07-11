@@ -111,6 +111,7 @@ class AuthenticationController extends Controller
         return $this->render('authentication/registration.html.twig', [
             'title' => 'Register',
             'form' => $form->createView(),
+            'button_label' => 'Register',
         ]);
     }
 

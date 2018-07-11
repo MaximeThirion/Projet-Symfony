@@ -5,9 +5,9 @@
 {% endblock %}
 
 {% block body %}
-    <div class="container">
+    <main class="container">
         <h1>List of Course</h1>
-        <table class="table">
+        <table class="table table-hover">
             <thead>
             <tr>
                 <th scope="col">Id</th>
@@ -20,15 +20,14 @@
             <tbody>
             {% for course in courseList %}
                 <tr>
-                    <td>{{ course.id }}</td>
-                    <td>{{ course.label }}</td>
-                    <td>{{ course.formation }}</td>
-                    <td>{{ course.exercices | length }}</td>
-                    <td><a class="btn btn-primary" href="{{ path('course_update', {'id': course.id}) }}"><i class="far fa-edit"></i> Edit</a> <a class="btn btn-danger" href="{{ path('course_delete', {'id': course.id}) }}"><i class="far fa-trash-alt"></i> Delete</a></td>
+                    <td class="align-middle">{{ course.id }}</td>
+                    <td class="align-middle">{{ course.label }}</td>
+                    <td class="align-middle">{{ course.formation }}</td>
+                    <td class="align-middle">{{ course.exercices | length }}</td>
+                    <td class="align-middle"><a class="btn btn-primary" href="{{ path('course_update', {'id': course.id}) }}"><i class="far fa-edit"></i> Edit</a> <a class="btn btn-danger" href="{{ path('course_delete', {'id': course.id}) }}"><i class="far fa-trash-alt"></i> Delete</a></td>
                 </tr>
             {% endfor %}
             </tbody>
         </table>
-    </div>
-
+    </main>
 {% endblock %}

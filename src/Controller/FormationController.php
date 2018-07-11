@@ -37,7 +37,8 @@ class FormationController extends Controller
 
         return $this->render('formation/create.html.twig', [
             'title' => 'Create formation',
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'button_label' => 'Create Formation',
         ]);
     }
 
@@ -81,7 +82,8 @@ class FormationController extends Controller
         return $this->render('formation/create.html.twig', [
             'title' => 'Update formation',
             'id' => $id,
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'button_label' => 'Update Formation',
         ]);
     }
 

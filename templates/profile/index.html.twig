@@ -6,8 +6,12 @@
 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
     <main class="container">
         <div class="row col-9 ml-auto mr-auto mb-4">
-            <h1>{{ title }}</h1>
+            <h1 class="mr-2">{{ title }}</h1>
+            <div class="mt-1 ml-auto">
+                <a class="btn btn-primary" href="{{ path('profile_edit') }}"><i class="far fa-edit"></i> Edit</a>
+            </div>
         </div>
+
         <div class="row col-9 m-auto">
             <img class="mr-5 rounded" src="{{ asset('uploads/avatar/' ~ app.user.avatar) }}" alt="">
             <div class="col">
